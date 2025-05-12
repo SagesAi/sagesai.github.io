@@ -1,0 +1,190 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  heroImage?: string;
+  author: string;
+}
+
+const { title, description, pubDate, updatedDate, heroImage, author } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="text-center mb-12">
+      {heroImage && (
+        <img 
+          src={heroImage} 
+          alt={title} 
+          class="w-full h-64 object-cover rounded-lg shadow-md mb-8"
+        />
+      )}
+      <h1 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-4">{title}</h1>
+      <div class="text-gray-500 mb-4">
+        <span>{author} • </span>
+        <time datetime={pubDate.toISOString()}>
+          {pubDate.toLocaleDateString('zh-CN', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </time>
+        {updatedDate && (
+          <span>
+            {' '}• 更新于{' '}
+            <time datetime={updatedDate.toISOString()}>
+              {updatedDate.toLocaleDateString('zh-CN', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </time>
+          </span>
+        )}
+      </div>
+      <p class="text-xl text-gray-600">{description}</p>
+    </div>
+    
+    <div class="prose prose-lg max-w-none">
+      <slot />
+    </div>
+    
+    <div class="mt-12 pt-6 border-t border-gray-200">
+      <a 
+        href="/blog" 
+        class="text-primary-600 hover:text-primary-800 font-medium"
+      >
+        ← 返回博客列表
+      </a>
+    </div>
+  </article>
+</Layout>
+
+<style is:global>
+  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    color: #111827;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-weight: 600;
+  }
+  
+  .prose h1 {
+    font-size: 2.25em;
+  }
+  
+  .prose h2 {
+    font-size: 1.875em;
+  }
+  
+  .prose h3 {
+    font-size: 1.5em;
+  }
+  
+  .prose p {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+  }
+  
+  .prose a {
+    color: #0284c7;
+    text-decoration: underline;
+    font-weight: 500;
+  }
+  
+  .prose code {
+    color: #111827;
+    background-color: #f3f4f6;
+    padding: 0.2em 0.4em;
+    border-radius: 0.25em;
+    font-size: 0.875em;
+    font-family: 'Fira Code', monospace;
+  }
+  
+  .prose pre {
+    background-color: #1e293b;
+    border-radius: 0.375em;
+    color: #e2e8f0;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.875em;
+    line-height: 1.7142857;
+    margin-top: 1.7142857em;
+    margin-bottom: 1.7142857em;
+    overflow-x: auto;
+    padding: 1em;
+  }
+  
+  .prose pre code {
+    background-color: transparent;
+    border-width: 0;
+    border-radius: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+  }
+  
+  .prose blockquote {
+    border-left-width: 4px;
+    border-left-color: #e5e7eb;
+    margin-top: 1.6em;
+    margin-bottom: 1.6em;
+    padding-left: 1em;
+    font-style: italic;
+    color: #6b7280;
+  }
+  
+  .prose ol, .prose ul {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+    padding-left: 1.625em;
+    list-style-position: outside;
+  }
+  
+  .prose ol {
+    list-style-type: decimal;
+  }
+  
+  .prose ul {
+    list-style-type: disc;
+  }
+  
+  .prose table {
+    width: 100%;
+    table-layout: auto;
+    text-align: left;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+  }
+  
+  .prose table th {
+    background-color: #f3f4f6;
+    font-weight: 600;
+    padding: 0.75em;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .prose table td {
+    padding: 0.75em;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .prose table tr:nth-child(even) {
+    background-color: #f9fafb;
+  }
+  
+  .prose li {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  
+  .prose img {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-radius: 0.375em;
+  }
+</style>

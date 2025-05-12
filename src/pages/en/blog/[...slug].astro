@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import MarkdownLayout from '../../../layouts/MarkdownLayout.astro';
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+
+// 创建英文版路由
+export async function getStaticPaths() {
+  // 获取英文博客文章
+  const blogEntries = await getCollection('blog-en');
+  
+  // 返回英文博客文章的路由
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const lang = 'en'; // 强制使用英文
+const t = useTranslations(lang);
+---
+
+<MarkdownLayout frontmatter={entry.data} lang={lang}>
+  <Content />
+  
+  <div slot="after-content" class="mt-8 pt-8 border-t border-gray-200">
+    <a href="/en/blog" class="text-blue-600 hover:text-blue-800 font-medium">
+      ← Back to Blog
+    </a>
+  </div>
+</MarkdownLayout>

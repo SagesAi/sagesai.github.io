@@ -1,11 +1,12 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import VideoDemo from '../components/VideoDemo.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Terminal Agent - DevOps智能助手" description="一个专为DevOps设计的AI助手，支持系统故障自动诊断、软件自动安装、运维脚本自动化编写和环境自动化部署。">
+	<Hero />
+	<Features />
+	<VideoDemo />
 </Layout>

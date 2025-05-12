@@ -1,0 +1,13 @@
+---
+import { getLangFromUrl, getLocalizedPath } from '../i18n/utils';
+
+const url = Astro.url;
+const currentLang = getLangFromUrl(url);
+const otherLang = currentLang === 'zh' ? 'en' : 'zh';
+const otherLangText = currentLang === 'zh' ? 'English' : '中文';
+const otherLangPath = getLocalizedPath(otherLang, url.pathname);
+---
+
+<a href={otherLangPath} class="text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors">
+  {otherLangText}
+</a>

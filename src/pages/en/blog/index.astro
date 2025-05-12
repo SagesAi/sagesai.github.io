@@ -1,0 +1,93 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+import DefaultBlogCover from '../../../components/DefaultBlogCover.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Get all English blog posts and sort by date
+const posts = await getCollection('blog-en');
+const sortedPosts = posts.sort(
+  (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+);
+
+---
+
+<Layout title="Blog | Terminal Agent" description="Terminal Agent Blog - Learn about the latest feature updates, usage tips, and best practices">
+  <div class="bg-gradient-to-b from-gray-50 to-white py-16 sm:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl tracking-tight">
+          {t('blog.title')}
+        </h1>
+        <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-600 sm:mt-5">
+          {t('blog.subtitle')}
+        </p>
+      </div>
+
+      <div class="mt-12 max-w-6xl mx-auto grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {sortedPosts.map((post) => (
+          <div class="group flex flex-col rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden bg-white border border-gray-100">
+            <div class="flex-shrink-0 relative overflow-hidden">
+              {post.data.heroImage ? (
+                <a href={`/en/blog/${post.slug}/`} class="block">
+                  <div class="aspect-w-16 aspect-h-9 bg-gray-100 overflow-hidden">
+                    <img 
+                      class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-in-out" 
+                      src={post.data.heroImage} 
+                      alt={post.data.title} 
+                      loading="lazy"
+                      onError="this.onerror=null; this.src='/images/default-blog-cover.png';"
+                    />
+                  </div>
+                </a>
+              ) : (
+                <a href={`/en/blog/${post.slug}/`} class="block aspect-w-16 aspect-h-9">
+                  <DefaultBlogCover title={post.data.title} />
+                </a>
+              )}
+            </div>
+            <div class="flex-1 p-6 flex flex-col justify-between">
+              <div class="flex-1">
+                <a href={`/en/blog/${post.slug}/`} class="block group-hover:opacity-90 transition-opacity">
+                  <h2 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200 mb-3 line-clamp-2">
+                    {post.data.title}
+                  </h2>
+                  <p class="text-base text-gray-600 line-clamp-3">{post.data.description}</p>
+                </a>
+              </div>
+              <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
+                <div class="flex items-center">
+                  <div class="text-sm">
+                    <p class="font-medium text-gray-900">
+                      {post.data.author}
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-center text-sm text-gray-500">
+                  <time datetime={post.data.pubDate} class="whitespace-nowrap">
+                    {new Date(post.data.pubDate).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric',
+                    })}
+                  </time>
+                  <span class="mx-2 text-gray-300">•</span>
+                  <span>{post.data.readingTime || '5 minutes'}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {sortedPosts.length === 0 && (
+        <div class="text-center mt-12">
+          <p class="text-lg text-gray-500">{t('blog.noPosts')}</p>
+        </div>
+      )}
+    </div>
+  </div>
+</Layout>
