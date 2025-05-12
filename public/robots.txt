@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
+# 添加多个可能的站点地图路径
 Sitemap: https://sagesai.github.io/sitemap-index.xml
+Sitemap: https://sagesai.github.io/sitemap.xml
