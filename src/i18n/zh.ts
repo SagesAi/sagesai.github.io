@@ -5,11 +5,11 @@ export default {
     github: 'GitHub'
   },
   hero: {
-    subtitle: 'DevOps AI 助手',
+    subtitle: '开源 DevOps AI 助手',
     title: 'Terminal Agent',
     subtitle2: '智能运维助手',
-    description: '一个专为DevOps设计的AI终端助手，通过自然语言交互实现系统故障自动诊断、软件自动安装、运维脚本自动化编写和运维环境自动化部署。',
-    cta1: '开始使用',
+    description: '一个开源的、专为DevOps设计的AI终端助手，通过自然语言交互实现系统故障自动诊断、软件自动安装、运维脚本自动化编写和运维环境自动化部署。完全开源，社区驱动，可自由定制。',
+    cta1: '立即体验',
     cta2: '了解更多'
   },
   features: {
@@ -30,7 +30,7 @@ export default {
         description: '根据自然语言描述自动生成高质量的Shell、Python或其他运维脚本。包含错误处理、日志记录和安全检查，并且可以根据反馈进行交互式修改和优化。'
       },
       {
-        name: '运维环境自动化部署',
+        name: '环境自动化部署',
         description: '快速部署常见的运维环境和工具链，如Docker、Kubernetes、监控系统、CI/CD流程等。自动生成配置文件和部署脚本，并提供最佳实践建议。'
       }
     ]

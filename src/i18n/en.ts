@@ -5,11 +5,11 @@ export default {
     github: 'GitHub'
   },
   hero: {
-    subtitle: 'DevOps AI Assistant',
+    subtitle: 'Open Source DevOps AI Assistant',
     title: 'Terminal Agent',
     subtitle2: 'Intelligent Operations Assistant',
-    description: 'An AI terminal assistant designed for DevOps, enabling system fault diagnosis, software installation, automation script writing, and environment deployment through natural language interaction.',
-    cta1: 'Get Started',
+    description: 'An open source AI terminal assistant designed for DevOps, enabling system fault diagnosis, software installation, automation script writing, and environment deployment through natural language interaction. Fully open source, community-driven, and customizable.',
+    cta1: 'Try Now',
     cta2: 'Learn More'
   },
   features: {
