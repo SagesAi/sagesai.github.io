@@ -4,73 +4,85 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sagesai.github.io/</loc>
-    <lastmod>2025-05-16T17:48:42+08:00</lastmod>
+    <lastmod>2025-05-16T21:03:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://sagesai.github.io/blog/</loc>
-    <lastmod>2025-05-16T17:48:42+08:00</lastmod>
+    <lastmod>2025-05-16T21:03:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sagesai.github.io/en/</loc>
-    <lastmod>2025-05-16T17:48:42+08:00</lastmod>
+    <lastmod>2025-05-16T21:03:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sagesai.github.io/en/blog/</loc>
-    <lastmod>2025-05-16T17:48:42+08:00</lastmod>
+    <lastmod>2025-05-16T21:03:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sagesai.github.io/blog/getting-started/</loc>
-    <lastmod>2025-05-16T17:48:42+08:00</lastmod>
+    <lastmod>2025-05-16T21:03:39+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagesai.github.io/blog/environment-deployment/</loc>
-    <lastmod>2025-05-16T17:48:42+08:00</lastmod>
+    <lastmod>2025-05-16T21:03:39+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagesai.github.io/blog/system-diagnostics/</loc>
-    <lastmod>2025-05-16T17:48:42+08:00</lastmod>
+    <lastmod>2025-05-16T21:03:39+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagesai.github.io/blog/automation-scripts/</loc>
-    <lastmod>2025-05-16T17:48:42+08:00</lastmod>
+    <lastmod>2025-05-16T21:03:39+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagesai.github.io/blog/terminal-agent-with-qwen3/</loc>
+    <lastmod>2025-05-16T21:03:39+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagesai.github.io/en/blog/getting-started/</loc>
-    <lastmod>2025-05-16T17:48:42+08:00</lastmod>
+    <lastmod>2025-05-16T21:03:39+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagesai.github.io/en/blog/environment-deployment/</loc>
-    <lastmod>2025-05-16T17:48:42+08:00</lastmod>
+    <lastmod>2025-05-16T21:03:39+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagesai.github.io/en/blog/system-diagnostics/</loc>
-    <lastmod>2025-05-16T17:48:42+08:00</lastmod>
+    <lastmod>2025-05-16T21:03:39+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sagesai.github.io/en/blog/automation-scripts/</loc>
-    <lastmod>2025-05-16T17:48:42+08:00</lastmod>
+    <lastmod>2025-05-16T21:03:39+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagesai.github.io/en/blog/terminal-agent-with-qwen3/</loc>
+    <lastmod>2025-05-16T21:03:39+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
