@@ -169,64 +169,7 @@ terminal-agent
 TERMINAL_AGENT_PROVIDER=gemini terminal-agent
 ```
 
-## Advanced Features
 
-### Custom Plugins
-
-Terminal Agent supports custom plugins to extend its functionality:
-
-```bash
-# Install a plugin
-terminal-agent --install-plugin github.com/user/terminal-agent-plugin
-
-# Use a plugin
-[Terminal Agent] > @plugin-name perform custom action
-```
-
-### Configuration
-
-Terminal Agent can be configured through a configuration file:
-
-```bash
-# Create a default configuration
-terminal-agent --init-config
-
-# Edit configuration
-nano ~/.config/terminal-agent/config.yaml
-```
-
-### API Integration
-
-Terminal Agent can be integrated with other applications through its API:
-
-```python
-from terminal_agent import Agent
-
-agent = Agent()
-response = agent.query("Install nginx on my system")
-print(response.actions)
-```
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Authentication Errors**: Make sure your API keys are correctly set in the configuration file
-2. **Network Issues**: Check your internet connection and proxy settings
-3. **Permission Problems**: Some operations may require sudo privileges
-
-### Getting Help
-
-```bash
-# View help
-terminal-agent --help
-
-# Check version
-terminal-agent --version
-
-# Enable debug mode
-terminal-agent --debug
-```
 
 ## Conclusion
 
