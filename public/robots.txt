@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# 添加多个可能的站点地图路径
-Sitemap: https://sagesai.github.io/sitemap.xml
+# 添加站点地图路径（使用相对路径）
+Sitemap: /sitemap.xml
