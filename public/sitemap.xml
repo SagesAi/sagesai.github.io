@@ -110,4 +110,16 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://sagesai.github.io/blog/agent-takeover/</loc>
+    <lastmod>2025-05-30T15:57:33+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sagesai.github.io/en/blog/agent-takeover/</loc>
+    <lastmod>2025-05-30T15:57:33+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
