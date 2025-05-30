@@ -1,153 +1,66 @@
 ---
-title: "Terminal Agent Quick Takeover Guide"
-description: "Learn how to effectively take control of Terminal Agent for more efficient human-AI collaboration"
+title: "Human Intervention: A Critical Safeguard in AI Agent Systems"
+description: "Explore the importance of human intervention in AI Agent systems and how Terminal Agent implements seamless human-AI collaboration through mode switching"
 pubDate: "2025-05-30"
 heroImage: "/images/agent-takeover.png"
 author: "Terminal Agent Team"
 readingTime: "8 minutes"
 ---
 
-# Terminal Agent Quick Takeover Guide
+# Human Intervention: A Critical Safeguard in AI Agent Systems
 
-When using AI assistants like Terminal Agent, there are times when we need to take control or interrupt current operations. This article details how to achieve smooth human-AI handovers in various Terminal Agent workflows, ensuring you always maintain control.
+In the design and deployment of AI Agent systems, human intervention mechanisms serve as critical safeguards ensuring reliability, safety, and user experience. This article explores the importance of human intervention in AI Agent systems and how Terminal Agent implements seamless human-AI collaboration through innovative mode switching features.
 
-## Why Take Control?
+## The Key Role of Human Intervention
 
-During collaboration with an AI assistant, you may need to take control in the following situations:
+Human intervention is a vital safety mechanism that enables you to improve an AI Agent's real-world performance without compromising user experience. This mechanism is particularly important in several aspects:
 
-1. **Command Execution Deviates from Expectations**: When AI-generated commands don't match your actual needs
-2. **Preventing Potential Risks**: Blocking potentially risky operations
-3. **Changing Work Direction**: When you want to adjust task priorities or direction
-4. **Providing Additional Context**: When you need to supplement information the AI lacks
-5. **Emergency Handling**: In urgent situations requiring immediate cessation of all operations
+1. **Early Deployment Stage**: Helps identify system failure points and uncover edge cases
+2. **Establishing Evaluation Cycles**: Forms robust system evaluation and improvement mechanisms
+3. **Handling High-Risk Operations**: Provides human oversight for sensitive, irreversible, or high-stakes operations
+4. **Exceeding Failure Thresholds**: Takes control when AI fails after multiple attempts
 
-## Command Execution Control
+## Terminal Agent's Human-AI Collaboration Modes
 
-Terminal Agent provides multiple ways for you to take control of the command execution process at any time:
+Terminal Agent implements flexible and powerful human-AI collaboration mechanisms through innovative mode switching features. The core feature is the "@user" and "@ai" mode switching functionality, which allows users to seamlessly transfer control in different scenarios:
 
-### Command Confirmation Mechanism
+### @user Mode: User Takeover
 
-Whenever Terminal Agent prepares to execute a command, it displays the command content and asks if you want to proceed:
+When you enter the `@user` command in Terminal Agent, the system immediately switches to user takeover mode. In this mode:
 
-```
->>> Command to execute: ls -la
-(Type 'stop' to terminate the current command and all subsequent operations)
-Execute this command? (y/n):
-```
+- AI transfers complete control to you
+- All commands are directly input and executed by you
+- AI only provides suggestions and explanations, without proactively executing commands
+- The system clearly marks that it's currently in user takeover mode
 
-In this prompt, you have three options:
+This mode is particularly suitable for scenarios requiring fine-grained control, or when AI cannot correctly handle complex situations.
 
-- Enter `y` or `yes`: Allow command execution
-- Enter `n` or `no`: Reject the current command but allow AI to continue subsequent operations
-- Enter `stop`: Terminate the current command and stop all subsequent operations
+### @ai Mode: AI Autonomous Operation
 
-### Key Point: Using the `stop` Command
+When a task needs to return to AI autonomous operation, simply enter the `@ai` command, and the system will switch back to AI mode. In this mode:
 
-The `stop` command is a powerful control mechanism that not only prevents the current command from executing but also sets a stop flag to prevent Terminal Agent from executing any subsequent operations, including new LLM API calls.
+- AI autonomously plans and executes tasks based on your instructions
+- Each command still requires your confirmation before execution
+- AI proactively provides solutions and execution paths
 
-This is particularly useful in the following situations:
-- When you discover the AI is executing a series of incorrect operations
-- When you need to completely redirect the AI's work
-- In emergency situations requiring immediate cessation of all activities
+This mode is suitable for routine tasks or scenarios where you already have confidence in the AI's capabilities.
 
-### Keyboard Interrupts
+### Practical Application of Mode Switching
 
-In addition to responding to prompts, you can use keyboard interrupts (such as Ctrl+C or Ctrl+D) to immediately interrupt the command confirmation process. Terminal Agent will treat this as an active user interruption and stop the current operation.
+The following demonstration video shows the human-AI collaboration mode switching functionality in Terminal Agent, including how to use the `@user` and `@ai` commands:
 
-```
-Execute this command? (y/n): ^C
-Command confirmation interrupted by user
-```
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BlfX0-rMDHk" title="Terminal Agent Human-AI Collaboration Mode Demonstration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Error Handling and Fixes
+In this demonstration, you can see how users can seamlessly switch between AI autonomous mode and user takeover mode to handle complex operation scenarios. This flexible control mode allows users to take over the system when needed and return to AI autonomous mode after completing specific operations, achieving true human-AI collaboration.
 
-When command execution fails, Terminal Agent analyzes the error and provides fix suggestions:
 
-```
->>> Command execution did not complete successfully
-Locating the problem...
-Error: Permission denied
-Suggested fix: sudo apt-get update
-Execute this fix? (y/n/quit):
-```
 
-At this stage, you can:
-- Accept the suggested fix command
-- Reject the fix and let the AI try other methods
-- Enter `quit` to completely exit the current task
 
-## Best Practices: Effectively Taking Control of Terminal Agent
-
-To ensure you can effectively take control of Terminal Agent at any time, here are some best practices:
-
-### 1. Proactively Set Boundaries
-
-Before starting a task, clearly tell Terminal Agent your preferences and limitations:
-
-```
-[Terminal Agent] > Help me install Docker, but don't restart the system or modify any configuration files
-```
-
-### 2. Closely Monitor Command Execution
-
-Even if Terminal Agent's suggestions seem reasonable, carefully check each command. Pay special attention to:
-- Commands involving system configuration
-- Commands using `sudo`
-- Commands that might delete files
-- Network-related commands
-
-### 3. Use Step-by-Step Confirmation
-
-For complex tasks, ask Terminal Agent to execute step by step and wait for your confirmation after each step:
-
-```
-[Terminal Agent] > Help me set up an Nginx server step by step, waiting for my confirmation after each step
-```
-
-### 4. Provide Feedback Anytime
-
-When Terminal Agent's direction deviates, immediately provide clear feedback:
-
-```
-[Terminal Agent] > Stop the current operation. I want to use Docker Compose instead of individual Docker commands
-```
-
-### 5. Use Environment Variables to Control Behavior
-
-Terminal Agent supports adjusting its behavior through environment variables. For example, you can set:
-
-```bash
-# In ~/.terminal_agent/.env file
-AUTO_CONFIRM=false  # Disable auto-confirmation
-SAFETY_LEVEL=high   # Increase safety check level
-```
-
-## Real Case: Taking Control of a Deployment Process
-
-Here's a real case showing how to take control during a web application deployment process:
-
-```
-[Terminal Agent] > Deploy my Node.js application to production
-
->>> Command to execute: npm run build
-Execute this command? (y/n): y
-Building...
-
->>> Command to execute: rsync -avz --delete dist/ user@production:/var/www/app/
-Execute this command? (y/n): n
-
-[Terminal Agent] > I noticed you rejected the sync command. Do you want to modify any parameters?
-
-[User] > I want to backup existing files first, remove the --delete parameter, and add --backup parameter
-
->>> Command to execute: rsync -avz --backup dist/ user@production:/var/www/app/
-Execute this command? (y/n): y
-```
-
-In this example, the user successfully took control of the deployment process, modifying command parameters that might have led to data loss.
 
 ## Conclusion
 
-Effectively taking control of Terminal Agent is key to fully utilizing an AI assistant while maintaining control. By understanding and using the various control mechanisms introduced in this article, you can create a more collaborative and secure workflow, enjoying the convenience of AI automation while ensuring critical decisions remain in your hands.
+Human intervention mechanisms are essential components in AI Agent system design. Terminal Agent, through its innovative "@user" and "@ai" mode switching functionality, provides a flexible and efficient approach to human-AI collaboration.
 
-Remember, the best human-AI collaboration model is complementary rather than substitutive - Terminal Agent aims to enhance your capabilities, not replace your judgment. By establishing clear takeover mechanisms, you can seamlessly take control when needed, creating a truly efficient human-AI collaboration experience.
+This design philosophy recognizes that while AI can handle many routine tasks, human judgment, adaptability, and expertise remain irreplaceable in complex scenarios. By allowing users and AI to seamlessly switch control, Terminal Agent creates a truly collaborative work model that leverages the advantages of both.
+
+As AI technology continues to evolve, this form of human-AI collaboration will become increasingly important. By adopting appropriate human intervention mechanisms, we can ensure that AI systems maintain safety, reliability, and operation in line with human expectations while improving efficiency.
